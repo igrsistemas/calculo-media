@@ -34,32 +34,33 @@ function media($dados){
 
 		//MENSAGEM INFORMANDO OS DADOS
 		$mediaDados = "<b>Dados:</b><br>";
-
+		
+		//LAÇO DE REPETIÇÃO PARA RETORNAR OS DADOS DE CADA LINHA
 		foreach ($dados as $key => $value) {
 			$mediaDados .= "<b>Semana ".++$key.": </b>$value <br>";
 		}
+		//MENSAGENS
 		$mediaDados .= "<br><br>";
 		$mediaDados .= "<b>Média </b> <br>";
 		$mediaDados .= "Sua média de nota ou presença é: <b>$media</b>";
 	}else {
+		//MENSAGEM DE ERRO
 		$mediaDados = "<b>Dados:</b><br>Informe os dados!";
 	}
+	//RETORNA DADOS
 	return $mediaDados ;
 }
 
 
 
-
+//VERIFICA SE O BOTÃO FOI CLICADO NO FORMULÁRIO 2
 if(isset($_POST['envio2'])){
-
+	//RECUPERA OS DADOS ENVIADOS EM CADA LINHA E TRANSFORMA EM UM ARRAY
 	$dadosArray = explode("\n", $_POST['dados']);
-
 }else{
+	//ARRAY NULL PARA NÃO APARECER ERROS DE STRING INEXISTENTE
 	$dadosArray = NULL ;
 }
-
-
-
 
 // FUNÇÃO MÉDIA
 function mediaArray($dados){
